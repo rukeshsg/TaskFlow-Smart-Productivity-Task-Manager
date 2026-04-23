@@ -1,0 +1,313 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+
+/* ─── Design Tokens ─────────────────────────────────────── */
+:root {
+  --bg-base:       #07090f;
+  --bg-surface:    #0d1117;
+  --bg-elevated:   #141b27;
+  --bg-overlay:    #1a2235;
+  --bg-hover:      #1f2d40;
+
+  --border-subtle: rgba(255,255,255,0.06);
+  --border-base:   rgba(255,255,255,0.09);
+  --border-strong: rgba(255,255,255,0.15);
+
+  --text-primary:  #f8fafc;
+  --text-secondary:#cbd5e1;
+  --text-muted:    #94a3b8;
+  --text-dim:      #64748b;
+
+  --brand:         #6366f1;
+  --brand-light:   #818cf8;
+  --brand-dim:     rgba(99,102,241,0.15);
+
+  --cyan:          #22d3ee;
+  --violet:        #a78bfa;
+  --emerald:       #34d399;
+  --amber:         #fbbf24;
+  --rose:          #f87171;
+  --pink:          #f472b6;
+
+  --radius-sm:     8px;
+  --radius-md:     12px;
+  --radius-lg:     16px;
+  --radius-xl:     20px;
+  --radius-2xl:    24px;
+
+  --shadow-sm:     0 2px 8px rgba(0,0,0,0.3);
+  --shadow-md:     0 4px 20px rgba(0,0,0,0.4);
+  --shadow-lg:     0 8px 40px rgba(0,0,0,0.5);
+  --shadow-glow:   0 0 24px rgba(99,102,241,0.3);
+  --shadow-glow-sm:0 0 12px rgba(99,102,241,0.2);
+
+  --transition:    all 0.2s cubic-bezier(0.4,0,0.2,1);
+  --transition-slow: all 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* Light mode overrides */
+body.light {
+  --bg-base:       #f8fafc;
+  --bg-surface:    #ffffff;
+  --bg-elevated:   #f1f5f9;
+  --bg-overlay:    #e8eef8;
+  --bg-hover:      #e2eaf5;
+
+  --border-subtle: rgba(0,0,0,0.05);
+  --border-base:   rgba(0,0,0,0.08);
+  --border-strong: rgba(0,0,0,0.14);
+
+  --text-primary:  #0f172a;
+  --text-secondary:#334155;
+  --text-muted:    #64748b;
+  --text-dim:      #94a3b8;
+
+  --shadow-sm:     0 2px 8px rgba(0,0,0,0.07);
+  --shadow-md:     0 4px 20px rgba(0,0,0,0.1);
+  --shadow-lg:     0 8px 40px rgba(0,0,0,0.12);
+  color-scheme: light;
+}
+
+/* ─── Reset & Base ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; height: 100%; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  color-scheme: dark;
+}
+
+#root { height: 100vh; overflow: hidden; }
+
+/* ─── Scrollbar ─────────────────────────────────────────── */
+* { scrollbar-width: thin; scrollbar-color: var(--bg-overlay) transparent; }
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--bg-overlay); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--bg-hover); }
+
+/* ─── Focus ─────────────────────────────────────────────── */
+:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; border-radius: 4px; }
+button { cursor: pointer; }
+a { text-decoration: none; }
+
+/* ─── Glass card ────────────────────────────────────────── */
+.glass {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-base);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+.glass-elevated {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-base);
+}
+.glass-overlay {
+  background: var(--bg-overlay);
+  border: 1px solid var(--border-subtle);
+}
+
+/* ─── Gradient text ─────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1 0%, #a78bfa 40%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-text-warm {
+  background: linear-gradient(135deg, #f472b6 0%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Glows ─────────────────────────────────────────────── */
+.glow         { box-shadow: var(--shadow-glow); }
+.glow-sm      { box-shadow: var(--shadow-glow-sm); }
+.glow-emerald { box-shadow: 0 0 20px rgba(52,211,153,0.25); }
+.glow-cyan    { box-shadow: 0 0 20px rgba(34,211,238,0.2); }
+.glow-rose    { box-shadow: 0 0 20px rgba(248,113,113,0.2); }
+
+/* ─── Skeleton shimmer ──────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg,
+    var(--bg-elevated) 25%,
+    var(--bg-overlay)  50%,
+    var(--bg-elevated) 75%
+  );
+  background-size: 1200px 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+  border-radius: var(--radius-sm);
+}
+
+/* ─── Pulse dot ─────────────────────────────────────────── */
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+.pulse-dot { animation: pulseDot 1.8s ease-in-out infinite; }
+
+/* ─── Card hover lift ───────────────────────────────────── */
+.card-hover {
+  transition: var(--transition);
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
+}
+
+/* ─── Kanban ────────────────────────────────────────────── */
+.kanban-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+}
+.kanban-col-scroll {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ─── Input shared style ────────────────────────────────── */
+.input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-base);
+  color: var(--text-primary);
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  transition: var(--transition);
+}
+.input::placeholder { color: var(--text-dim); }
+.input:focus { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(99,102,241,0.12); }
+.input:hover:not(:focus) { border-color: var(--border-strong); }
+
+/* ─── Button base ───────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+  user-select: none;
+}
+.btn:active { transform: scale(0.97); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+.btn-primary {
+  background: var(--brand);
+  color: #fff;
+  box-shadow: var(--shadow-glow-sm);
+}
+.btn-primary:hover:not(:disabled) { background: var(--brand-light); box-shadow: var(--shadow-glow); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-base);
+}
+.btn-ghost:hover:not(:disabled) { background: var(--bg-elevated); color: var(--text-primary); }
+
+.btn-danger {
+  background: rgba(248,113,113,0.12);
+  color: var(--rose);
+  border: 1px solid rgba(248,113,113,0.2);
+}
+.btn-danger:hover:not(:disabled) { background: rgba(248,113,113,0.22); }
+
+.btn-icon {
+  width: 34px; height: 34px; padding: 0;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid transparent;
+}
+.btn-icon:hover { background: var(--bg-elevated); color: var(--text-primary); border-color: var(--border-subtle); }
+
+/* ─── Badge ─────────────────────────────────────────────── */
+.badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 9px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* ─── React Big Calendar overrides ─────────────────────── */
+.rbc-calendar { font-family: 'Inter', sans-serif; color: var(--text-primary); }
+.rbc-header { padding: 10px 4px !important; font-weight: 600 !important; font-size: 12px !important; color: var(--text-secondary) !important; border-bottom: 1px solid var(--border-subtle) !important; background: transparent !important; }
+.rbc-today { background: rgba(99,102,241,0.07) !important; }
+.rbc-off-range-bg { background: var(--bg-overlay) !important; }
+.rbc-off-range { color: var(--text-dim) !important; }
+.rbc-event { border: none !important; border-radius: 6px !important; font-size: 11px !important; padding: 2px 7px !important; font-weight: 600 !important; }
+.rbc-event:focus { outline: 2px solid var(--brand-light) !important; }
+.rbc-show-more { color: var(--brand-light) !important; font-size: 11px !important; font-weight: 600 !important; background: transparent !important; }
+.rbc-toolbar button { color: var(--text-secondary) !important; background: var(--bg-elevated) !important; border: 1px solid var(--border-base) !important; border-radius: var(--radius-sm) !important; font-size: 12px !important; font-family: inherit !important; padding: 6px 12px !important; cursor: pointer !important; transition: var(--transition) !important; }
+.rbc-toolbar button:hover { background: var(--bg-hover) !important; color: var(--text-primary) !important; }
+.rbc-toolbar button.rbc-active { background: var(--brand) !important; color: #fff !important; border-color: var(--brand) !important; }
+.rbc-toolbar-label { font-weight: 700 !important; font-size: 15px !important; color: var(--text-primary) !important; }
+.rbc-month-view, .rbc-time-view { border: 1px solid var(--border-subtle) !important; border-radius: var(--radius-lg) !important; overflow: hidden !important; background: var(--bg-surface) !important; }
+.rbc-day-bg + .rbc-day-bg { border-left: 1px solid var(--border-subtle) !important; }
+.rbc-month-row + .rbc-month-row { border-top: 1px solid var(--border-subtle) !important; }
+.rbc-agenda-view table { border: 1px solid var(--border-subtle) !important; border-radius: var(--radius-md) !important; overflow: hidden !important; }
+.rbc-agenda-date-cell, .rbc-agenda-time-cell { color: var(--text-secondary) !important; font-size: 12px !important; }
+.rbc-agenda-event-cell { color: var(--text-primary) !important; }
+.rbc-time-slot { border-top: 1px solid var(--border-subtle) !important; }
+.rbc-timeslot-group { border-bottom: 1px solid var(--border-subtle) !important; }
+.rbc-time-header-content { border-left: 1px solid var(--border-subtle) !important; }
+.rbc-time-content { border-top: 1px solid var(--border-subtle) !important; }
+
+/* ─── Animations ────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.animate-fade-in-up { animation: fadeInUp 0.3s ease both; }
+.animate-fade-in    { animation: fadeIn 0.25s ease both; }
+
+/* ─── Stagger delays ────────────────────────────────────── */
+.delay-50  { animation-delay: 50ms; }
+.delay-100 { animation-delay: 100ms; }
+.delay-150 { animation-delay: 150ms; }
+.delay-200 { animation-delay: 200ms; }
+
+/* ─── Select style override ─────────────────────────────── */
+select.input option { background: var(--bg-elevated); color: var(--text-primary); }
+
+/* ─── Mobile sidebar backdrop ───────────────────────────── */
+@media (max-width: 768px) {
+  #root { overflow: visible; }
+}
+
+/* ─── Drag ghost ────────────────────────────────────────── */
+.dragging {
+  transform: rotate(2deg) scale(1.03);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5), var(--shadow-glow-sm);
+  opacity: 0.95;
+}

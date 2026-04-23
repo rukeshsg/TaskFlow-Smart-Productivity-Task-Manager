@@ -1,0 +1,12 @@
+node_modules/
+.env
+dist/
+.DS_Store
+*.log
+npm-debug.log*
+
+# Editor and personal files
+.vscode/
+.idea/
+.sixth/
+*.docx

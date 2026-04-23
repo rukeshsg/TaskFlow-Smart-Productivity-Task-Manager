@@ -1,0 +1,13 @@
+{
+  "name": "taskflow",
+  "version": "1.0.0",
+  "description": "Smart Productivity Task Manager — Full Stack",
+  "scripts": {
+    "dev:backend":  "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "install:all":  "cd backend && npm install && cd ../frontend && npm install",
+    "start:backend": "cd backend && npm start"
+  },
+  "author": "Rukesh SG",
+  "license": "MIT"
+}
