@@ -17,11 +17,14 @@ const socketHandler = require('./socket/socketHandler');
 const app = express();
 const server = http.createServer(app);
 
+// Trust the reverse proxy (Crucial for Render/Vercel rate limiting)
+app.set('trust proxy', 1);
+
 // Socket.io setup with CORS
 const io = new Server(server, {
   cors: {
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
-    methods: ['GET', 'POST'],
+    origin: true, // Reflects requesting origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
   },
 });
@@ -62,7 +65,7 @@ app.use(globalLimiter);
 // ─── General Middleware ─────────────────────────────────────────────────────
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || 'http://localhost:5173',
+    origin: true, // Reflects the requesting origin dynamically (fixes Vercel URL issues)
     credentials: true,
   })
 );
