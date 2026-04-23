@@ -1,9 +1,13 @@
 import axios from 'axios';
 
+// Ensure the production URL has /api
+let prodUrl = import.meta.env.VITE_API_URL || 'https://taskflow-smart-productivity-task-manager.onrender.com/api';
+if (prodUrl && !prodUrl.endsWith('/api')) {
+  prodUrl = prodUrl.replace(/\/$/, '') + '/api';
+}
+
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.PROD 
-    ? (import.meta.env.VITE_API_URL || 'https://taskflow-smart-productivity-task-manager.onrender.com/api')
-    : '/api',
+  baseURL: import.meta.env.PROD ? prodUrl : '/api',
   timeout: 10000,
   headers: { 'Content-Type': 'application/json' },
 });
