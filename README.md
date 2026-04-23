@@ -35,14 +35,14 @@ TaskFlow is an ultra-premium, full-stack Task Management application designed fo
 
 ## 📸 Screenshots
 
-### 🏠 Home Page / Kanban Board
-<p align="center">
-  <img src="./assets/home-page.png" width="800"/>
-</p>
-
 ### 🔐 Login Page
 <p align="center">
   <img src="./assets/login.png" width="800"/>
+</p>
+
+### 🏠 Home Page / Kanban Board
+<p align="center">
+  <img src="./assets/home-page.png" width="800"/>
 </p>
 
 ### 📅 Smart Calendar
