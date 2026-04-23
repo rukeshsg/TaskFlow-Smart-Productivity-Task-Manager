@@ -1,7 +1,10 @@
 import axios from 'axios';
 
-// Ensure the production URL has /api
+// Ensure the production URL has /api and starts with https://
 let prodUrl = import.meta.env.VITE_API_URL || 'https://taskflow-smart-productivity-task-manager.onrender.com/api';
+if (prodUrl && !prodUrl.startsWith('http')) {
+  prodUrl = 'https://' + prodUrl;
+}
 if (prodUrl && !prodUrl.endsWith('/api')) {
   prodUrl = prodUrl.replace(/\/$/, '') + '/api';
 }

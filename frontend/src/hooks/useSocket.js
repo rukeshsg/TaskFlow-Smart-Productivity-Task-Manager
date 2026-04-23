@@ -19,9 +19,13 @@ export const useSocket = (token) => {
       return;
     }
 
-    const socketUrl = import.meta.env.PROD 
+    let socketUrl = import.meta.env.PROD 
       ? (import.meta.env.VITE_API_URL ? import.meta.env.VITE_API_URL.replace('/api', '') : 'https://taskflow-smart-productivity-task-manager.onrender.com')
       : window.location.origin;
+
+    if (import.meta.env.PROD && !socketUrl.startsWith('http')) {
+      socketUrl = 'https://' + socketUrl;
+    }
 
     const s = io(socketUrl, {
       auth: { token },
