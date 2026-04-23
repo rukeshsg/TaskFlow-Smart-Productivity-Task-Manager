@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: '/api',
+  baseURL: import.meta.env.VITE_API_URL || 'https://taskflow-smart-productivity-task-manager.onrender.com/api',
   timeout: 10000,
   headers: { 'Content-Type': 'application/json' },
 });
