@@ -40,14 +40,14 @@ TaskFlow is an ultra-premium, full-stack Task Management application designed fo
   <img src="./assets/home-page.png" width="800"/>
 </p>
 
-### 📅 Smart Calendar
-<p align="center">
-  <img src="./assets/smart-calendar.png" width="800"/>
-</p>
-
 ### 🔐 Login Page
 <p align="center">
   <img src="./assets/login.png" width="800"/>
+</p>
+
+### 📅 Smart Calendar
+<p align="center">
+  <img src="./assets/smart-calendar.png" width="800"/>
 </p>
 
 ## 🚀 Tech Stack
