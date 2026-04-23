@@ -1,7 +1,5 @@
 # TaskFlow: Smart Productivity Manager
 
-![TaskFlow Header](https://via.placeholder.com/1200x400/0a0f1c/6366f1?text=TaskFlow+Productivity+Suite)
-
 TaskFlow is an ultra-premium, full-stack Task Management application designed for high-performing individuals and teams. Built with the MERN stack (MongoDB, Express, React, Node.js), it features a highly responsive, glassmorphism-inspired UI, real-time synchronization, interactive Kanban boards, and a comprehensive Calendar view.
 
 ## ✨ Features
