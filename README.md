@@ -42,6 +42,8 @@ TaskFlow is an ultra-premium, full-stack Task Management application designed fo
 ### 🔐 Login Page
 ![Login](./assets/login.png)
 
+--- 
+
 ## 🚀 Tech Stack
 
 **Frontend:**
