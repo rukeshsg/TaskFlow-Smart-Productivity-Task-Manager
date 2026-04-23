@@ -92,10 +92,12 @@ socketHandler(io);
 // ─── Start Server ──────────────────────────────────────────────────────────
 const PORT = process.env.PORT || 5000;
 
+
+
 const startServer = async () => {
   try {
     await connectDB();
-    server.listen(PORT, () => {
+    server.listen(PORT, "0.0.0.0", () => {
       console.log(`🚀 Server running on port ${PORT} in ${process.env.NODE_ENV || 'development'} mode`);
     });
   } catch (error) {
@@ -105,6 +107,7 @@ const startServer = async () => {
 };
 
 startServer();
+
 
 module.exports = { app, server };
 
