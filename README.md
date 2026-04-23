@@ -1,7 +1,28 @@
 # TaskFlow: Smart Productivity Manager
 
+![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-1E1E2E?logo=vite&logoColor=646CFF)
+
+![Node.js](https://img.shields.io/badge/Node.js-20232A?logo=node.js&logoColor=339933)
+![Express](https://img.shields.io/badge/Express-20232A?logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-20232A?logo=mongodb&logoColor=47A248)
+
+![JWT](https://img.shields.io/badge/JWT-1E1E2E?logo=jsonwebtokens&logoColor=white)
+![Socket.io](https://img.shields.io/badge/Socket.io-1E1E2E?logo=socket.io&logoColor=white)
+
+![Vercel](https://img.shields.io/badge/Vercel-000000?logo=vercel&logoColor=white)
+![Render](https://img.shields.io/badge/Render-0A0F1C?logo=render&logoColor=46E3B7)
+
+![License](https://img.shields.io/badge/License-MIT-FFD700)
+![Status](https://img.shields.io/badge/Status-Live-00C853)
+![Build](https://img.shields.io/badge/Build-Passing-00E676)
+![PRs](https://img.shields.io/badge/PRs-Welcome-2979FF)
 
 TaskFlow is an ultra-premium, full-stack Task Management application designed for high-performing individuals and teams. Built with the MERN stack (MongoDB, Express, React, Node.js), it features a highly responsive, glassmorphism-inspired UI, real-time synchronization, interactive Kanban boards, and a comprehensive Calendar view.
+
+## 🌐Live Demo
+- 🔗 Frontend: https://task-flow-smart-productivity-task-manager-nqrokvypt.vercel.app
+- 🔗 Backend API: https://taskflow-smart-productivity-task-manager.onrender.com
 
 ## ✨ Features
 
@@ -11,6 +32,15 @@ TaskFlow is an ultra-premium, full-stack Task Management application designed fo
 - **Dark/Light Mode**: Full CSS-variable-based theming engine with seamless toggling.
 - **Real-Time Readiness**: Architecture pre-configured for Socket.io synchronization.
 - **Advanced Filtering & Analytics**: Real-time stats calculation and streak tracking.
+
+## 📸 Screenshots
+
+### 🏠 Home Page / Kanban Board
+![Home Page](./assets/home%20page.png)
+### 📅 Smart Calendar
+![Smart Calendar](./assets/Smart%20Calender.png)
+### 🔐 Login Page
+![Login](./assets/login.png)
 
 ## 🚀 Tech Stack
 
@@ -71,9 +101,9 @@ TaskFlow is an ultra-premium, full-stack Task Management application designed fo
 ## 🌐 Deployment Configuration
 
 The repository is structured for seamless deployment using a monorepo setup:
-- **Backend (Render / Railway)**: The `backend/` folder contains a robust Express server. Ensure environment variables are added in your hosting dashboard.
-- **Frontend (Vercel / Netlify)**: The `frontend/` folder uses Vite. The build command is `npm run build` and the publish directory is `dist`. A `vercel.json` file is included for SPA routing rules.
+- **Backend (Render)**: The `backend/` folder contains a robust Express server. Ensure environment variables are added in your hosting dashboard.
+- **Frontend (Vercel)**: The `frontend/` folder uses Vite. The build command is `npm run build` and the publish directory is `dist`. A `vercel.json` file is included for SPA routing rules.
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the Apache License 2.0.
